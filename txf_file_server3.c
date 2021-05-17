@@ -278,7 +278,7 @@ int main(){
 
 			//Recive client Request
 			recv(client_socket, client_message, sizeof(client_message), 0);
-			
+		
 			//Write to Log
 			char _now[256]; 
 			strcpy(_now, now());
@@ -336,7 +336,7 @@ int main(){
 
 
 					//Sending DayK
-					printf("Sending DayK %d\n", file_exists("/home/gg/tick/TX00.TXT"));
+					printf("Sending DayK %d\n", file_exists("./TX00.TXT"));
 					fp = fopen("/home/gg/tick/TX00.TXT", "rb");
 					while(!feof(fp)){
 						numbytes = fread(buf, sizeof(char), sizeof(buf), fp);
