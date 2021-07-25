@@ -7,7 +7,6 @@
 
 #include <netinet/in.h>
 #include <pthread.h>
-#include <sys/queue.h>
 
 #include <stdlib.h>   
 #include <unistd.h>   
