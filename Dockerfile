@@ -1,11 +1,15 @@
- FROM python:alpine AS base 
-
-RUN mkdir /app
-
-ADD . /app
-
+FROM alpine as build-env
 RUN apk add libc6-compat
+RUN apk add --no-cache build-base
+WORKDIR /app
+COPY . .
+# Compile the binaries
+RUN gcc -o txf_file_server3 txf_file_server3.c
 
-RUN apk add build-base
 
-RUN gcc /app/txf_file_server3.c -o /app/txf_file_server3
+FROM alpine
+RUN apk add libc6-compat
+RUN apk add --no-cache build-base
+COPY --from=build-env /app /app
+WORKDIR /app
+CMD ["/app/txf_file_server3"] 
