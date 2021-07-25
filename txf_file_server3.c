@@ -230,8 +230,6 @@ void FileRead(char path[256]){
 
 int main(){
 //check file
-	char pwd[1024] = "/home/gg/tick/TX00.TXT";
-	printf("%s %d\n", pwd, file_exists(pwd));
 	printf("HELLO\n");
 
 //	FileWrite("history.txt", "second.\n");
@@ -336,8 +334,8 @@ int main(){
 
 
 					//Sending DayK
-					printf("Sending DayK %d\n", file_exists("./TX00.TXT"));
-					fp = fopen("/home/gg/tick/TX00.TXT", "rb");
+					printf("Sending DayK %d\n", file_exists("./tick/TX00.TXT"));
+					fp = fopen("./tick/TX00.TXT", "rb");
 					while(!feof(fp)){
 						numbytes = fread(buf, sizeof(char), sizeof(buf), fp);
 						numbytes = write(client_socket, buf, numbytes);
